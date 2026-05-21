@@ -1,6 +1,7 @@
 import { Link } from 'expo-router';
-//import { KeyRound, Mail } from 'lucide-react-native';
+import { Mail, Lock, Eye  } from 'lucide-react-native';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function HomeScreen() {
@@ -8,9 +9,14 @@ export default function HomeScreen() {
     <View style={styles.containerBody}>
       <View style={styles.containerLogo}>''
         <Image
-          source={require('../assets/images/gatao.jpg')}
+          source={require('../assets/images/logo.jpeg')}
+          style={{
+            marginTop:120,
+            width:150,
+            height:150
+          }}
         />
-        <Text style={styles.easyList}>EasyList</Text>
+        {/*<Text style={styles.easyList}>EasyList</Text>*/}
       <View style={styles.textAcimaForm}>
         <Text style={styles.suaLista}>"Sua lista de compras, mais fácil"</Text>
       </View>  
@@ -19,11 +25,12 @@ export default function HomeScreen() {
           <View>
               <Text style={styles.textForm}>Email</Text>
               <View style={styles.iconBlock}>
+                
                 <TextInput
                   style={styles.input}
                   placeholder=''
                 />
-                {/*<Mail style={styles.icone} />*/}
+                <Mail style={styles.icone} />
               </View>
           </View>
           <View>
@@ -36,18 +43,28 @@ export default function HomeScreen() {
                   secureTextEntry={true}
                   textContentType='password'
                 />
-                {/*<KeyRound style={styles.icone} />*/}
+                <Lock style={styles.icone} />
+                <Eye style={styles.iconEye}/>
               </View>
             </View>
           </View>
         </View>
       <View style={styles.viewBtn}>
         <View>
-          <TouchableOpacity style={styles.btnEnviar}>
             <Link href="/compras" asChild>
-            <Text style={styles.textEntrar}>Entrar</Text>
-            </Link>
-          </TouchableOpacity>
+              <TouchableOpacity>
+
+                <LinearGradient
+                    colors={['#8bc1ca', '#0b0b38']}
+                    start={{x:0,y:3.4}}
+                    end={{x:1,y:2}}
+                    style={styles.btnEnviar}
+                  >
+                  <Text style={styles.textEntrar}>Entrar</Text>
+                </LinearGradient>
+
+              </TouchableOpacity>
+              </Link>
         </View>
       </View>
     </View>
@@ -60,9 +77,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   containerLogo: {
-    flex: 0.6,
+    backgroundColor:'#ffffff',
+    flex: 0.4,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    //paddingBottom:
   },
   input: {
     margin:20,
@@ -70,7 +89,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     paddingVertical: 14,
     marginLeft:15,
-    paddingHorizontal:25,
+    paddingHorizontal:45,
   },
   easyList: {
     fontSize: 30,
@@ -78,14 +97,15 @@ const styles = StyleSheet.create({
      paddingTop: 20
   },
   viewForm: {
-    backgroundColor: '#111377',
-    flex: 0.4,
+    backgroundColor: '#0b0b38',
+    flex: 0.34,
     paddingHorizontal: -30,
     borderRadius:25,
     marginHorizontal:10,
+    marginTop:50
   },
   textForm: {
-    opacity:0.5,
+    opacity:0.6,
     fontSize: 25,
     color: '#d7d8d7',
     paddingTop:15,
@@ -93,9 +113,16 @@ const styles = StyleSheet.create({
   },
   icone: {
     position: 'absolute',
-    right: 15,
-    color: '#708070'
+    left: 30,
+    color: '#708070',
   },
+
+  iconEye:{
+    position: 'absolute',
+    right: 40,
+    color: '#708070',
+  },
+
   iconBlock:{
     justifyContent: 'center'
   },
@@ -119,9 +146,15 @@ const styles = StyleSheet.create({
 
   suaLista:{
     flex:0,
+    fontSize:23,
+    fontWeight:'bold',
   },
 
   textAcimaForm:{
     flex:0,
+    backgroundColor:"#ffffff",
+    position: 'absolute',
+    //paddingTop:10
+    marginTop:390
   }
 })
