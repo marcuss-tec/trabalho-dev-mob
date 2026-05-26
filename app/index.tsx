@@ -1,22 +1,35 @@
 import { Link } from 'expo-router';
 import { Mail, Lock, Eye  } from 'lucide-react-native';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function HomeScreen() {
   return (
     <View style={styles.containerBody}>
+      <ImageBackground>
+        <Image
+          source={require('../assets/images/Fundo.jpg')}
+          style={{
+            position: 'absolute',
+            top: -225,
+            right: 0,
+            left:0,
+            width: 600,
+            height: 400,
+          }}
+        />
+      </ImageBackground>
       <View style={styles.containerLogo}>''
         <Image
-          source={require('../assets/images/logo.jpeg')}
+          source={require('../assets/images/logoEL.jpeg')}
           style={{
             marginTop:120,
             width:150,
             height:150
           }}
         />
-        {/*<Text style={styles.easyList}>EasyList</Text>*/}
+        <Text style={styles.easyList}>EasyList</Text>
       <View style={styles.textAcimaForm}>
         <Text style={styles.suaLista}>"Sua lista de compras, mais fácil"</Text>
       </View>  
@@ -55,7 +68,7 @@ export default function HomeScreen() {
               <TouchableOpacity>
 
                 <LinearGradient
-                    colors={['#8bc1ca', '#0b0b38']}
+                    colors={['#95C0C1', '#12194B']}
                     start={{x:0,y:3.4}}
                     end={{x:1,y:2}}
                     style={styles.btnEnviar}
@@ -77,7 +90,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   containerLogo: {
-    backgroundColor:'#ffffff',
     flex: 0.4,
     alignItems: 'center',
     justifyContent: 'center',
@@ -97,7 +109,7 @@ const styles = StyleSheet.create({
      paddingTop: 20
   },
   viewForm: {
-    backgroundColor: '#0b0b38',
+    backgroundColor: '#12194B',
     flex: 0.34,
     paddingHorizontal: -30,
     borderRadius:25,
@@ -156,5 +168,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     //paddingTop:10
     marginTop:390
+  },
+
+  imagemFundo:{
+    position: 'absolute',
   }
 })
