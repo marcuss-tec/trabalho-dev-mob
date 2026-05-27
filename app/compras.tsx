@@ -21,6 +21,7 @@ export default function Tela2() {
       </View>
       <View style={styles.inputIcon}>
         <TextInput 
+          placeholder='Adicionar Tarefa'
           style={styles.input}
           value={textoTarefa}
           onChangeText={setTextoTarefa}
@@ -30,15 +31,16 @@ export default function Tela2() {
           <Plus
             size={25}
             color={'#ffffff'}
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </TouchableOpacity>
       </View>
-
-      <View>
-        {lista.map((item,index) => (
-          <Item key={index} listaDeTarefas={item}/>
-        ))}
+      <View style={styles.fundoLista}>
+          <View>
+            {lista.map((item,index) => (
+              <Item key={index} listaDeTarefas={item}/>
+            ))}
+          </View>
       </View>
 
     </View>
@@ -55,12 +57,12 @@ const styles = StyleSheet.create({
   },
 
   input:{
-    backgroundColor: "#b6b6b6",
+    fontSize:20,
     borderRadius:40,
     flex:1,
     paddingHorizontal:10,
     height:60,
-    marginVertical:50,
+    marginVertical:1,
   },
   textoTopo:{
     fontSize:25,
@@ -71,9 +73,12 @@ const styles = StyleSheet.create({
   },
 
   btnAdd:{
-    backgroundColor:'#385c3e',
+    position:'absolute',
+    left:15,
+    backgroundColor:'#95C0C1',
     paddingHorizontal:8,
-    paddingVertical:15,
+    paddingVertical:6,
+    marginVertical:20,
     borderRadius:20,
     alignItems:'center',
     justifyContent:'center',
@@ -88,8 +93,18 @@ const styles = StyleSheet.create({
   },
 
   inputIcon:{
+    backgroundColor:'#494949',
     flexDirection:'row',
-    justifyContent:'center'
+    justifyContent:'center',
+    paddingVertical:8,
+    paddingHorizontal:55,
+    marginHorizontal:25,
+    borderRadius:100,
+    marginBottom:50
 
+  },
+
+  fundoLista:{
+    backgroundColor:'#000000',
   }
 })
