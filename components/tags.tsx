@@ -1,10 +1,18 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {Trash2} from 'lucide-react-native'
 
-export default function Tags() {
+type Props = {
+  onDelete: () => void
+}
+
+export default function Tags({ onDelete }: Props) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <Text style={styles.textoDaTag}>Texto da tag</Text>
+      <TouchableOpacity onPress={onDelete}>
+        <Trash2 
+        size={30}
+        color={'#4d4d4d'}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -12,12 +20,6 @@ export default function Tags() {
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:'#ff0000',
-    borderRadius:5,
     padding:3
   },
-
-  textoDaTag:{
-    color:'#fff'
-  }
 })

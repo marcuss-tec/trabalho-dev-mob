@@ -1,10 +1,22 @@
-import { Link } from 'expo-router';
-import { Mail, Lock, Eye  } from 'lucide-react-native';
-import { Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { IngridDarling_400Regular, useFonts } from '@expo-google-fonts/ingrid-darling';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Link } from 'expo-router';
+import { Eye, Lock, Mail } from 'lucide-react-native';
+import { Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+
 
 
 export default function HomeScreen() {
+
+  const [fontsLoaded] = useFonts({
+    IngridDarling_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.containerBody}>
       <ImageBackground>
@@ -20,7 +32,7 @@ export default function HomeScreen() {
           }}
         />
       </ImageBackground>
-      <View style={styles.containerLogo}>''
+      <View style={styles.containerLogo}>
         <Image
           source={require('../assets/images/logoEL.jpeg')}
           style={{
@@ -104,9 +116,9 @@ const styles = StyleSheet.create({
     paddingHorizontal:45,
   },
   easyList: {
-    fontSize: 30,
-    fontWeight: 'bold',
-     paddingTop: 20
+    fontSize: 50,
+    paddingTop: 20,
+    fontFamily: 'IngridDarling_400Regular'
   },
   viewForm: {
     backgroundColor: '#12194B',
